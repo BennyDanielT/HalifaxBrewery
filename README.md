@@ -1,1 +1,1 @@
-A React Native Application for a Brewery in Halifax
+A React Native Application for NSLC outlets in Halifax.
