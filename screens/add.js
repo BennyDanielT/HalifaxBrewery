@@ -4,7 +4,7 @@ export default Add = ({ navigation }) => {
   return (
     <View>
       <View style={styles.container}>
-        <Text>ADDDDDD Page</Text>
+        <Text>Add Page</Text>
         <StatusBar style='auto' />
       </View>
     </View>
