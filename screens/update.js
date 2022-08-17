@@ -4,7 +4,7 @@ export default Update = ({ navigation }) => {
   return (
     <View>
       <View style={styles.container}>
-        <Text>Update Page</Text>
+        <Text>Updateeeeee Page</Text>
         <StatusBar style='auto' />
       </View>
     </View>
