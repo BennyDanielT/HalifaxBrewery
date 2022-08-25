@@ -1,12 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import React, { Component } from 'react';
+
+import { StyleSheet, Text, View, Button } from 'react-native';
 export default Add = ({ navigation }) => {
   return (
     <View>
       <View style={styles.container}>
-        <Text>ADDDDDD Page</Text>
+        <Text>Add Page</Text>
         <StatusBar style='auto' />
       </View>
+      <Button
+        title='Go to Update Page'
+        onPress={() => navigation.navigate('update', { name: 'Danny' })}
+      />
     </View>
   );
 };
