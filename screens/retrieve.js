@@ -40,6 +40,11 @@ export default Retrieve = ({ navigation }) => {
         />
         <Text> {'\n'}</Text>
         {isLoading && (
+          <View style={styles.loader}>
+            <ActivityIndicator size='large' color='#0c9' />
+          </View>
+        )}
+        {isLoading && (
           <Text>Data is being retrieved, wait pannu da ***ni =)</Text>
         )}
       </View>
