@@ -65,6 +65,7 @@ export default Retrieve = ({ navigation }) => {
         }}
         defaultValue='You can type in me'
       /> */}
+      <Text> {'\n'}</Text>
       <Button title={'Click using Fetch'} onPress={goForFetch} color='green' />
       {/* {
         <FlatList
