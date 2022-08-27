@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { province } from '../geo/province.js';
 import { Text } from '@rneui/themed';
+import AwesomeAlert from 'react-native-awesome-alerts';
+
 import {
   StyleSheet,
   // Text,
@@ -26,22 +28,17 @@ export default Add = ({ navigation }) => {
   const [brand, onChangeBrand] = React.useState('');
   const [product, onChangeProduct] = React.useState('');
   const [facings, onChangeFacings] = React.useState('');
-
+  const [alert, setAlert] = React.useState(false);
   // console.log(province);
+  showAlert = () => {
+    setAlert(true);
+  };
+
+  hideAlert = () => {
+    setAlert(false);
+  };
+
   const goForFetch = () => {
-    // console.log(
-    //   value +
-    //     ' ' +
-    //     region +
-    //     ' ' +
-    //     store +
-    //     ' ' +
-    //     brand +
-    //     ' ' +
-    //     product +
-    //     ' ' +
-    //     facings,
-    // );
     fetch('https://atlanticbreweries.herokuapp.com/add-data', {
       method: 'POST',
       headers: {
@@ -63,12 +60,38 @@ export default Add = ({ navigation }) => {
         // console.log('getting data from fetch', responseJson);
 
         console.log(responseJson.message);
+        showAlert();
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <ScrollView>
+      <View>
+        <AwesomeAlert
+          show={alert}
+          titleStyle={{
+            color: 'blue',
+            fontSize: 20,
+          }}
+          showProgress={false}
+          title='Hey Justin'
+          message='Product Added Successfully!'
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={true}
+          showCancelButton={false}
+          showConfirmButton={true}
+          cancelText='No, cancel'
+          confirmText='Ok MOFO'
+          confirmButtonColor='green'
+          onCancelPressed={() => {
+            hideAlert();
+          }}
+          onConfirmPressed={() => {
+            hideAlert();
+          }}
+        />
+      </View>
       <View style={{ alignItems: 'center' }}>
         <Image
           source={{
