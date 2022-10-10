@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import DropDownPicker from 'react-native-dropdown-picker';
+// import DropDownPicker from 'react-native-dropdown-picker';
 import { province } from '../geo/province.js';
 import { Text } from '@rneui/themed';
 import AwesomeAlert from 'react-native-awesome-alerts';
-
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { Dropdown } from 'react-native-element-dropdown';
 import {
   StyleSheet,
   // Text,
@@ -29,6 +30,9 @@ export default Add = ({ navigation }) => {
   const [product, onChangeProduct] = React.useState('');
   const [facings, onChangeFacings] = React.useState('');
   const [alert, setAlert] = React.useState(false);
+
+  const [Focus, setFocus] = useState(false);
+
   // console.log(province);
   showAlert = () => {
     setAlert(true);
@@ -103,7 +107,7 @@ export default Add = ({ navigation }) => {
       </View>
 
       <SafeAreaView>
-        <DropDownPicker
+        {/* <DropDownPicker
           placeholder='Select a Province'
           listMode='SCROLLVIEW'
           open={open}
@@ -116,6 +120,35 @@ export default Add = ({ navigation }) => {
             color: 'black',
             fontWeight: 'bold',
           }}
+        /> */}
+        <Dropdown
+          data={items}
+          style={[styles.dropdown, Focus && { borderColor: 'blue' }]}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          iconStyle={styles.iconStyle}
+          search
+          maxHeight={300}
+          labelField='label'
+          valueField='value'
+          placeholder={!Focus ? 'Select Province' : '...'}
+          searchPlaceholder='Search...'
+          value={value}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
+          onChange={(item) => {
+            setValue(item.value);
+            setFocus(false);
+          }}
+          renderLeftIcon={() => (
+            <AntDesign
+              style={styles.icon}
+              color={Focus ? 'blue' : 'black'}
+              name='Safety'
+              size={20}
+            />
+          )}
         />
       </SafeAreaView>
 
@@ -178,5 +211,43 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+  },
+  dropdown: {
+    height: 50,
+    borderColor: 'gray',
+    borderWidth: 0.5,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    backgroundColor: 'white',
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
+  },
+  inputContainer: {
+    marginTop: 10,
+  },
+  inputLabel: {
+    fontSize: 17,
+  },
+  success: {
+    textAlign: 'center',
+    marginBottom: 10,
+    padding: 10,
+    color: 'white',
+    borderRadius: 10,
+  },
+  bgSuccess: {
+    backgroundColor: '#228822d6',
   },
 });
