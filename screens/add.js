@@ -75,7 +75,7 @@ export default Add = ({ navigation }) => {
             fontSize: 20,
           }}
           showProgress={false}
-          title='Hey Justin'
+          title='Hey!'
           message='Product Added Successfully!'
           closeOnTouchOutside={true}
           closeOnHardwareBackPress={true}
