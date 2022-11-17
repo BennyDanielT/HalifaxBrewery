@@ -85,8 +85,8 @@ export default Add = ({ navigation }) => {
           closeOnHardwareBackPress={true}
           showCancelButton={false}
           showConfirmButton={true}
-          cancelText='No, cancel'
-          confirmText='Ok MOFO'
+          cancelText='Cancel'
+          confirmText='Confirm'
           confirmButtonColor='green'
           onCancelPressed={() => {
             hideAlert();
@@ -107,20 +107,6 @@ export default Add = ({ navigation }) => {
       </View>
 
       <SafeAreaView>
-        {/* <DropDownPicker
-          placeholder='Select a Province'
-          listMode='SCROLLVIEW'
-          open={open}
-          value={value}
-          items={items}
-          setOpen={setOpen}
-          setValue={setValue}
-          setItems={setItems}
-          placeholderStyle={{
-            color: 'black',
-            fontWeight: 'bold',
-          }}
-        /> */}
         <Dropdown
           data={items}
           style={[styles.dropdown, Focus && { borderColor: 'blue' }]}

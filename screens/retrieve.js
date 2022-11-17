@@ -45,7 +45,7 @@ export default Retrieve = ({ navigation }) => {
           </View>
         )}
         {isLoading && (
-          <Text>Data is being retrieved, wait pannu da ***ni =)</Text>
+          <Text>Data is being retrieved, please wait!</Text>
         )}
       </View>
       <View>
