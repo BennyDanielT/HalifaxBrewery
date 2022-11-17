@@ -173,25 +173,32 @@ export default Add = ({ navigation }) => {
         onChangeText={onChangeFacings}
         value={facings}
       />
-      <Button title={'Add a New Product'} onPress={goForFetch} color='blue' />
+      <Button
+        title={'Update Quantity'}
+        onPress={goForFetch}
+        color='#228822d6'
+        fontWeight='bold'
+      />
       <Text> {'\n'}</Text>
 
-      <Button
+      {/* <Button
         title='Go to Retrieve Page'
         onPress={() => navigation.navigate('retrieve', { name: 'Danny' })}
         style={{ width: 50, height: 50 }}
-      />
+      /> */}
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flexDirection: 'row',
     backgroundColor: '#F45678',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  flexDirection: 'row',
+  flexWrap: 'wrap',
   input: {
     height: 40,
     margin: 12,

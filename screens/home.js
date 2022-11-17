@@ -25,6 +25,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   heading: {
-    fontSize:30,
+    fontSize: 30,
+    paddingTop: 100,
+    color: '#0D569F',
   },
 });

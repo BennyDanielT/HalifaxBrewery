@@ -105,96 +105,144 @@ export default Add = ({ navigation }) => {
         />
         <Text> {'\n'}</Text>
       </View>
-
-      <SafeAreaView>
-        <Dropdown
-          data={items}
-          style={[styles.dropdown, Focus && { borderColor: 'blue' }]}
-          placeholderStyle={styles.placeholderStyle}
-          selectedTextStyle={styles.selectedTextStyle}
-          inputSearchStyle={styles.inputSearchStyle}
-          iconStyle={styles.iconStyle}
-          search
-          maxHeight={300}
-          labelField='label'
-          valueField='value'
-          placeholder={!Focus ? 'Select Province' : '...'}
-          searchPlaceholder='Search...'
-          value={value}
-          onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
-          onChange={(item) => {
-            setValue(item.value);
-            setFocus(false);
-          }}
-          renderLeftIcon={() => (
-            <AntDesign
-              style={styles.icon}
-              color={Focus ? 'blue' : 'black'}
-              name='Safety'
-              size={20}
-            />
-          )}
-        />
-      </SafeAreaView>
+      <View style={styles.formElements}>
+        <SafeAreaView style={styles.dropContainer}>
+          <Text h4 style={styles.label}>
+            Province
+          </Text>
+          <Dropdown
+            data={items}
+            style={[styles.dropdown, Focus && { borderColor: 'blue' }]}
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles.inputSearchStyle}
+            iconStyle={styles.iconStyle}
+            search
+            maxHeight={250}
+            labelField='label'
+            valueField='value'
+            placeholder={!Focus ? 'Select Province' : '...'}
+            searchPlaceholder='Search...'
+            value={value}
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
+            onChange={(item) => {
+              setValue(item.value);
+              setFocus(false);
+            }}
+            renderLeftIcon={() => (
+              <AntDesign
+                style={styles.icon}
+                color={Focus ? 'blue' : 'black'}
+                name='Safety'
+                size={20}
+              />
+            )}
+          />
+        </SafeAreaView>
+      </View>
 
       <StatusBar style='auto' />
 
       <Text> {'\n'}</Text>
+      <View style={styles.formElements}>
+        <Text h4 style={styles.label}>
+          Region
+        </Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeRegion}
+          value={region}
+        />
+      </View>
 
-      <Text> {'\n'}</Text>
-      <Text h3>Region</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeRegion}
-        value={region}
-      />
-      <Text h3>Store</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeStore}
-        value={store}
-      />
-      <Text h3>Brand</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeBrand}
-        value={brand}
-      />
-      <Text h3>Product</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeProduct}
-        value={product}
-      />
-      <Text h3>Facings</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeFacings}
-        value={facings}
-      />
-      <Button title={'Add a New Product'} onPress={goForFetch} color='blue' />
-      <Text> {'\n'}</Text>
+      <View style={styles.formElements}>
+        <Text h4 style={styles.label}>
+          Store
+        </Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeStore}
+          value={store}
+        />
+      </View>
+
+      <View style={styles.formElements}>
+        <Text h4 style={styles.label}>
+          Brand
+        </Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeBrand}
+          value={brand}
+        />
+      </View>
+
+      <View style={styles.formElements}>
+        <Text h4 style={styles.label}>
+          Product
+        </Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeProduct}
+          value={product}
+        />
+      </View>
+
+      <View style={styles.formElements}>
+        <Text h4 style={styles.label}>
+          Facings
+        </Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeFacings}
+          value={facings}
+        />
+      </View>
 
       <Button
+        title={'Add a New Product'}
+        onPress={goForFetch}
+        color='#228822d6'
+      />
+      <Text> {'\n'}</Text>
+
+      {/* <Button
         title='Go to Update Page'
         onPress={() => navigation.navigate('update', { name: 'Danny' })}
         style={{ width: 50, height: 50 }}
-      />
+      /> */}
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     backgroundColor: '#F45678',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  formElements: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    padding: 2,
+    // width: 250,
+  },
+  dropContainer: {
+    flex: 1,
+    width: 200,
+    // marginTop: 8,
+  },
+  label: {
+    flex: 1,
+    padding: 10,
+  },
   input: {
+    flex: 2,
     height: 40,
     margin: 12,
+    width: 250,
     borderWidth: 1,
     padding: 10,
   },
